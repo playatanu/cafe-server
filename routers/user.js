@@ -10,8 +10,6 @@ router //* CREACT NEW USER [POST]
       EMAIL: "adad",
       PASSWORD: "adad",
       ADDRESS: "adad",
-      CART: "",
-      ORDER: "",
     });
 
     user.save((err, result) => {
@@ -35,6 +33,7 @@ router
   })
   .patch(async (req, res) => {
     //* PATCH USER BY ID [PATCH -> ID]
+
     try {
       const updateUser = {
         NAME: req.body.NAME,

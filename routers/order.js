@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const OrderModel = require("../schema/orderSchema");
+const UserModel = require("../schema/userSchema");
 
 router
   .route("/")
@@ -13,15 +14,18 @@ router
       res.send("Got Err " + err);
     }
   })
-  .post((req, res) => {
+  .post(async (req, res) => {
     //* POST NEW ORDER [POST]
 
     const order = OrderModel({
-      STATUS: req.body.STATUS,
+      TOTAL: req.body.TOTAL,
       ORDERS: req.body.ORDERS,
       USER_ID: req.body.USER_ID,
       PAY_ID: req.body.PAY_ID,
       DATE: req.body.DATE,
+      ADDRESS: req.body.ADDRESS,
+      PHONE: req.body.PHONE,
+      NAME: req.body.NAME,
     });
 
     order.save((err, result) => {

@@ -23,11 +23,9 @@ app.use(
 );
 app.listen(process.env.PORT || 8080, () => console.log("Server running"));
 
-mongoose.connect("mongodb://localhost:27017/online-cafe", {
+mongoose.connect("mongodb://localhost:27017/shortly", {
   useNewUrlParser: true,
 });
 connect.on("open", () => console.log("Database Connted"));
 
 app.use("/products", require("./routers/product"));
-app.use("/user", require("./routers/user"));
-app.use("/order", require("./routers/order"));
